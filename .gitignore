@@ -8,6 +8,7 @@
 .xlsx
 .xls
 data/
+.pdf
 
 # User-specific files
 .Ruserdata
@@ -48,6 +49,8 @@ vignettes/*.pdf
 /articles
 /old
 /oldcode
+/othercode
+/working
 
 # bookdown
 _book

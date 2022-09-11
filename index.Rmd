@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "R기반 데이터저널리즘: 텍스트마이닝의 활용"
+author: "안도현, PhD"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -8,8 +8,8 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+github-repo: dataminds/data_journalism
+description: "This is an introductory material for data journalism with text mining. The output format for this example is bookdown::gitbook."
 ---
 
 # Prerequisites
