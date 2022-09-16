@@ -12,25 +12,113 @@ github-repo: dataminds/data_journalism
 description: "This is an introductory material for data journalism with text mining. The output format for this example is bookdown::gitbook."
 ---
 
-# Prerequisites
-
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
-
-The **bookdown** package can be installed from CRAN or Github:
-
-```{r eval=FALSE}
-install.packages("bookdown")
-# or the development version
-# devtools::install_github("rstudio/bookdown")
-```
-
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
-
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
-
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+# 개요{-}
+
+## R기반 데이터저널리즘: 텍스트마이닝의 활용
+
+2022년 9월 24일 한국 R사용자회 강의
+
+
+## 주요 내용
+
+1. 데이터저널리즘에 왜 R을 이용해야 하는가?
+
+2. R프로그래밍은 어느 정도 수준까지 필요할까?
+
+3. 텍스트마이닝을 데이터저널리즘에 어떻게 활용할 수 있을까?
+
+## 왜 프로그래밍인가?
+
+### 21세기는 제2기계의 시대. 
+
+- 제1기계\
+  - 전기 등의 에너지를 동력으로 전환하거나, 전환된 동력을 사용해 의도한 행위 수행(기관:engine)\
+  - 육체노동 대체\
+  - 사람이 기계를 직접 조작
+
+- 제2기계: 지식노동을 할수 있는 기계.\
+  - 동력을 사용해 데이터 1차 및 2차 부호화 작업 수행(컴퓨터)\
+  - 지식노동 대체\
+  - '언어'를 통해 간접조작. 
+  
+#### 사무직의 종말{-}
+
+- 전통적으로 사람 고유의 업무영역으로 여겼던 사무를 기계가 대체\
+- 기계가 대체하는 업무에는 전문직 지식노동(법, 회계, 보도 등) 포함.
+
+
+### 새로운 수요
+
+- 제1기계 혁명\
+  - 육체노동을 대체하는 새로운 수요 발생\
+  - 제1기계를 다루는 사람(기능인, 기술자)\
+  - 제1기계를 다루는 사람 관리(경영자, 관리자)\
+
+- 제2기계 혁명
+  - 지식노동 대체을 대체하는 새로운 수요는?
+  - 제2기계를 다루는 사람
+
+- 로봇이 더 잘할 수 있는 것들\
+  - 단순, 규칙적인 사실\
+  - 검색, 안내, 기장, 사건 및 시황 보도 등\
+
+- 인간은?\
+  - 복잡한, 창의적인 활동\
+  - 기획, 탐사, 심층 분석 등
+  - 이런 일을 기계와 함께 수행!!!
+
+국제화 시대에 영어 등 외국어 능력이 필수적이듯, 제2기계의 시대에서는 제2기계와의 소통수단인 코딩 능력이 필수. 
+
+::: infobox
+
+코딩과 프로그래밍은 같은 말이나, 굳이 구분한다면 다음과 같은 차이가 있다. 
+
+- **코딩**
+인간의 언어를 기계가 이해할 수 있는 코드(code: 부호)로 작성하는 행위. 
+
+- **프로그래밍**
+특정 작업을 수행하는 일련의 명령어 집합(프로그램)을 구성하는 행위.
+
+비유하자면, 소설을 쓰는 것이 프로그래밍. 글을 쓰는 것이 코딩에 해당한다고 할 수 있다.  
+
+:::
+
+
+### 제2기계 사용 위계
+
+- 1단계\
+  - 응용프로그램 이용: Point & Click
+
+- 2단계\
+  - 저급 프로그래밍: 사전 제작된 함수나 패키지(라이브러리) 사용
+  
+- 3단계\
+  - 고급 프로그래밍: 필요한 함수나 알고리듬 개발
+
+프로그래밍 없이도 제2기계를 부리는 것이 불가능하지는 않다. 그러나 제한적. 비유하자면, 대중교통과 자가용 이용의 차이. 운전을 하지 못해도 택시를 통해 자동차를 이용할 수 있지만(1단계), 자가용처럼 사용(2단계)하는 것은 불가능. 자동차 엔진을 직접 튜닝할수 있는 능력(3단계)까지는 아니더라도, 최소한 운전(코딩/프로그래밍) 정도는 할수 있는 능력 필요. 
+
+문맹은 글을 읽고 쓰지 못하는 사람. 
+
+프로그래밍은 기계가 이해할 수 있는 글을 읽고 쓰는 능력. 
+
+
+## 공개 전자책
+
+- R 기초
+
+- [R 텍스트마이닝](https://r2bit.com/book_tm/)
+
+---
+저작권: 동일조건 공개
+ - 수정 가능
+ - 출처 표시
+ - 비상업적 이용
+ 
+ 

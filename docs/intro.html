@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 . 개요 | R기반 데이터저널리즘: 텍스트마이닝의 활용</title>
+  <meta name="description" content="This is an introductory material for data journalism with text mining. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 . 개요 | R기반 데이터저널리즘: 텍스트마이닝의 활용" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is an introductory material for data journalism with text mining. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="dataminds/data_journalism" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 . 개요 | R기반 데이터저널리즘: 텍스트마이닝의 활용" />
+  
+  <meta name="twitter:description" content="This is an introductory material for data journalism with text mining. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="안도현, PhD" />
+
+
+<meta name="date" content="2022-09-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="author.html"/>
+<link rel="next" href="case.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R기반 데이터저널리즘: 텍스트마이닝의 활용</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>개요</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#r기반-데이터저널리즘-텍스트마이닝의-활용"><i class="fa fa-check"></i><b>0.1</b> R기반 데이터저널리즘: 텍스트마이닝의 활용</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#주요-내용"><i class="fa fa-check"></i><b>0.2</b> 주요 내용</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#왜-프로그래밍인가"><i class="fa fa-check"></i><b>0.3</b> 왜 프로그래밍인가?</a>
+<ul>
+<li class="chapter" data-level="0.3.1" data-path="index.html"><a href="index.html#세기는-제2기계의-시대."><i class="fa fa-check"></i><b>0.3.1</b> 21세기는 제2기계의 시대.</a></li>
+<li class="chapter" data-level="0.3.2" data-path="index.html"><a href="index.html#새로운-수요"><i class="fa fa-check"></i><b>0.3.2</b> 새로운 수요</a></li>
+<li class="chapter" data-level="0.3.3" data-path="index.html"><a href="index.html#제2기계-사용-위계"><i class="fa fa-check"></i><b>0.3.3</b> 제2기계 사용 위계</a></li>
+</ul></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#공개-전자책"><i class="fa fa-check"></i><b>0.4</b> 공개 전자책</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>Author</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> 개요</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#데이터저널리즘"><i class="fa fa-check"></i><b>1.1</b> 데이터저널리즘?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#사회과학의-차이는"><i class="fa fa-check"></i><b>1.2</b> 사회과학의 차이는?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#kbs-이대남-보도-사건"><i class="fa fa-check"></i><b>1.2.1</b> KBS 이대남 보도 사건</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#데이터저널리즘의-위기"><i class="fa fa-check"></i><b>1.3</b> 데이터저널리즘의 위기</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#이유는"><i class="fa fa-check"></i><b>1.3.1</b> 이유는?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#근본적인-질문-왜-코딩이-필요한가"><i class="fa fa-check"></i><b>1.4</b> 근본적인 질문: 왜 코딩이 필요한가?</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#세기는-제2기계의-시대.-1"><i class="fa fa-check"></i><b>1.4.1</b> 21세기는 제2기계의 시대.</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#인식-전환-필요"><i class="fa fa-check"></i><b>1.4.2</b> 인식 전환 필요</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#코딩으로-일이-줄어야지-더-늘어서는-안된다."><i class="fa fa-check"></i><b>1.5</b> 코딩으로 일이 줄어야지, 더 늘어서는 안된다.</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#텍스트마이닝"><i class="fa fa-check"></i><b>1.6</b> 텍스트마이닝</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#텍스트-마이너가-되는-방법은"><i class="fa fa-check"></i><b>1.7</b> 텍스트 마이너가 되는 방법은?</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#r-또는-파이썬"><i class="fa fa-check"></i><b>1.7.1</b> R 또는 파이썬</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="case.html"><a href="case.html"><i class="fa fa-check"></i><b>2</b> 사례</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="case.html"><a href="case.html#패키지"><i class="fa fa-check"></i><b>2.1</b> 패키지</a></li>
+<li class="chapter" data-level="2.2" data-path="case.html"><a href="case.html#정당-강령-비교"><i class="fa fa-check"></i><b>2.2</b> 정당 강령 비교</a></li>
+<li class="chapter" data-level="2.3" data-path="case.html"><a href="case.html#자료"><i class="fa fa-check"></i><b>2.3</b> 자료</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="case.html"><a href="case.html#본문-스크랩"><i class="fa fa-check"></i><b>2.3.1</b> 본문 스크랩</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="case.html"><a href="case.html#분석"><i class="fa fa-check"></i><b>2.4</b> 분석</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="case.html"><a href="case.html#총-단어"><i class="fa fa-check"></i><b>2.4.1</b> 총 단어</a></li>
+<li class="chapter" data-level="2.4.2" data-path="case.html"><a href="case.html#상위-빈도-명사"><i class="fa fa-check"></i><b>2.4.2</b> 상위 빈도 명사</a></li>
+<li class="chapter" data-level="2.4.3" data-path="case.html"><a href="case.html#상대빈도"><i class="fa fa-check"></i><b>2.4.3</b> 상대빈도</a></li>
+<li class="chapter" data-level="2.4.4" data-path="case.html"><a href="case.html#감정어-빈도"><i class="fa fa-check"></i><b>2.4.4</b> 감정어 빈도</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R기반 데이터저널리즘: 텍스트마이닝의 활용</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1 . </span> 개요<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="데이터저널리즘" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> 데이터저널리즘?<a href="intro.html#데이터저널리즘" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>모든 저널리즘은 데이터저널리즘.
+언론보도의 너무나도 당연한 요소인 데이터를 굳이 강조하는 이유는 데이터를 다루는 방식의 차이에 있다.</p>
+<p>기존 언론보도즘에서 데이터를 다루는 접근은 정성적. 일화적 사례에 의존. 물론 이 방법이 열등하다는 의미는 아니다.</p>
+<p>데이터를 강조한 데이터저널리즘은 데이터를 정량적으로 다루는 언론보도. 언론보도에서 정성적 접근과 정량적은 접근의 균형 필요하다. 현 언론보도는 과도하게 정성적 접근에 의존. 즉, 일화적 사례에 지나치게 의존하다.</p>
+</div>
+<div id="사회과학의-차이는" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> 사회과학의 차이는?<a href="intro.html#사회과학의-차이는" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>기술(description)과 추론(inference).</p>
+<p>언론보도는 기술의 영역에 국한해야 한다.</p>
+<p>추론은 과학은 영역. 과학적 성과를 공중과 공유하는 일련의 약속된 절차가 있다. 이 과정을 무시하고 공중에 대해 대규모로 배포하는 행위는 부적절. 오류가능성을 걸러낼 수 없기 때문이다.</p>
+<div id="kbs-이대남-보도-사건" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> KBS 이대남 보도 사건<a href="intro.html#kbs-이대남-보도-사건" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><a href="https://news.kbs.co.kr/news/view.do?ncd=5218373">KBS세대인식 집중조사</a>
+<ul>
+<li>KBS가 연구자(대학교수)들에게 의뢰한 연구.</li>
+<li>학계의 반발. 연구방법 등에 문제 제기. 이런 문제가 생겼던 이유는 연구결과 발표의 절차를 지키지 않아기 때문이다.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="데이터저널리즘의-위기" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> 데이터저널리즘의 위기<a href="intro.html#데이터저널리즘의-위기" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="http://m.journalist.or.kr/m/m_article.html?no=50649">언론사 데이터저널리즘이 사라져간다</a> (2021.12.21)</p>
+<blockquote>
+<p>화려하거나 특별하거나. 기성언론사 뉴스룸이 데이터저널리즘을 바라보는 시선이다. 2015년 전후로 빅데이터 열풍과 디지털 혁신 기조가 맞물리면서 여러 언론사가 데이터 전담팀을 신설하고 인력을 강화했다. 방대한 데이터를 인터랙티브 방식으로 화려하게 구현한 콘텐츠가 나올 때마다 화제가 되곤 했다.</p>
+<p>공공부문을 포함해 전 산업에서 데이터의 중요성이 커지고 있다. 반면 언론계의 데이터저널리즘은 설 자리를 잃어가는 모습이다. 국내 데이터저널리즘을 선도했던 언론사들은 올해 들어 잇달아 전담팀을 폐지했다. 취재기자 경력을 갖춘 고연차 데이터 저널리스트들도 현업을 떠났다. ‘한국 언론의 새로운 희망’(2018년 보도, 김익현 지디넷 기자)이라는 평가를 받았던 데이터저널리즘이 위협받고 있다.</p>
+</blockquote>
+<div id="이유는" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> 이유는?<a href="intro.html#이유는" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>데일리 뉴스 중심으로 돌아가는 업무 환경도 데이터저널리즘을 위축시키는 한 요인이다. <strong>데이터 수집과 분석은 ‘막노동’에 비유될 정도로 품이 많이 드는 데다 결과물을 내기까지 수개월이 걸리기도 한다.</strong> 데이터저널리즘팀에서 근무했던 김태형 KBS 기자는 “데이터 기사는 오랜 시간 열심히 취재하고 보도해도 많이 읽히지 않고, 포털에서 구현도 한계가 있다”며 “당장 그날 처리해야 할 뉴스는 뺄 수 없으니 데이터저널리즘처럼 기획성 기사에 쏟는 힘을 줄이려는 거다. 데이터팀을 유지하는 데 회사의 의지가 중요할 수밖에 없다”고 말했다.</p>
+</blockquote>
+<blockquote>
+<p>데이터저널리즘을 향한 오해도 부정적인 영향을 끼친다. 일반 취재보도와 동떨어졌다거나 <strong>화려한 시각화 콘텐츠가 데이터저널리즘의 전부라는 인식</strong>이다. 데이터 저널리스트들은 “정말 오해”라고 입을 모았다. ‘데이터’는 취재현장이자 취재보도 기법의 하나일 뿐 특정인만 할 수 있다거나 특별한 것도 아니라는 것이다.</p>
+</blockquote>
+</div>
+</div>
+<div id="근본적인-질문-왜-코딩이-필요한가" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> 근본적인 질문: 왜 코딩이 필요한가?<a href="intro.html#근본적인-질문-왜-코딩이-필요한가" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="세기는-제2기계의-시대.-1" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> 21세기는 제2기계의 시대.<a href="intro.html#세기는-제2기계의-시대.-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>제1기계
+<ul>
+<li>전기 등의 에너지를 동력으로 전환하거나, 전환된 동력을 사용해 의도한 행위 수행(기관:engine)</li>
+<li>육체노동 대체</li>
+<li>사람이 기계를 직접 조작</li>
+</ul></li>
+<li>제2기계: 지식노동을 할수 있는 기계.
+<ul>
+<li>동력을 사용해 데이터 1차 및 2차 부호화 작업 수행(컴퓨터)</li>
+<li>지식노동 대체</li>
+<li>’언어’를 통해 간접조작</li>
+</ul></li>
+</ul>
+<aside>
+<p>💡 일을 더 효율적으로 하기 위해 코딩하는데, 데이터저널리즘에는 왜 일이 훨씬 더 많을까?</p>
+</aside>
+</div>
+<div id="인식-전환-필요" class="section level3 hasAnchor" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> 인식 전환 필요<a href="intro.html#인식-전환-필요" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>장슬기 MBC 데이터 전문기자는 <strong>“데이터저널리즘은 그 영역이 따로 있다기보다 기사를 내는 다양한 방법 중 하나다. 누군가를 취재할 때 전화하고 질문지 보내고 ‘뻗치기’하는 것과 똑같다</strong>”며 “데이터저널리즘을 신의 영역이라든가, 하기만 하면 무조건 대박 나는 특별한 분야로 여기는 분들이 많다. 이런 인식의 괴리 때문에 데이터저널리즘이 자리를 잡기 어려운 것 같다”고 말했다. <a href="http://m.journalist.or.kr/m/m_article.html?no=50649">언론사 데이터저널리즘이 사라져간다</a> (2021.12.21)</p>
+</blockquote>
+</div>
+</div>
+<div id="코딩으로-일이-줄어야지-더-늘어서는-안된다." class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> 코딩으로 일이 줄어야지, 더 늘어서는 안된다.<a href="intro.html#코딩으로-일이-줄어야지-더-늘어서는-안된다." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>2015년 LA타임즈는 정보공개 청구를 통해 40만건의 경찰보고서 입수. 이중 중대범죄 14000건이 경범죄로 잘못 분류된 사실 밝혀냈다.</p>
+<p>LA타임즈 보도팀은 40만건에 대해 기계학습 분류기(SVM과 MaxEnt)를 이용해 8년 걸릴 작업을 1년만에 완료.</p>
+<p>Poston, B., &amp; Rubin, J. (2014, August 10). Times Investigation: LAPD misclassified nearly 1,200 violent crimes as minor offenses. Los Angeles Times. <a href="http://www.latimes.com/local/la-me-crimestats-lapd-20140810-story.html">www.latimes.com/local/la-me-crimestats-lapd-20140810-story.html</a></p>
+<p>Poston, B., Rubin, J., &amp; Pesce, A. (2015, October 15). LAPD underreported serious assaults, skewing crime stats for 8 years. Los Angeles Times. <a href="http://www.latimes.com/local/cityhall/la-me-crime-stats-20151015-story.html">www.latimes.com/local/cityhall/la-me-crime-stats-20151015-story.html</a></p>
+</div>
+<div id="텍스트마이닝" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> 텍스트마이닝<a href="intro.html#텍스트마이닝" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>텍스트마이닝은 말 그대로 텍스트에서 의미를 캐내는 작업. 기존 언론보도는 텍스트(말, 문서)를 수집해 보도. 수작업으로 분석. 텍스트마이닝은 이 정성적인 언론보도를 장량적 접근 가능하도록 한다.</p>
+<ul>
+<li><a href="https://datajournalism.com/read/handbook/two/working-with-data/text-as-data-finding-stories-in-corpora">주요 사례</a> from Data Journalism Handbook
+<ul>
+<li>문서의 길이 계산
+<ul>
+<li>미국 Vox는 2016년 역대 대통령 연두교서 분석하여 오바마 대통령이 가장 말이 많았던 대통령이라고 보도.
+<ul>
+<li>Chang, A. (2016, January 11). President Obama is among the wordiest State of the Union speakers ever. <em>Vox</em>. <a href="https://www.vox.com/2016/1/11/10736570/obama-wordy-state-of-the-union">www.vox.com/2016/1/11/10736570/obama-wordy-state-of-the-union</a></li>
+</ul></li>
+</ul></li>
+<li>특정 단어 계산
+<ul>
+<li>영국 가디언즈는 2016년 런던 시장 선거에서 후보자 연설에 등장한 특정 어휘 빈도 분석(예: 범죄, 오염, 주택, 교통 등)해 정책방향 보도
+<ul>
+<li>Barr, C. (2016, May 3). London mayor: Commons speeches reveal candidates’ differing issue focus. <em>The Guardian</em>.</li>
+</ul></li>
+</ul></li>
+<li>비교
+<ul>
+<li>미국 프로퍼블리카는 2012년 선거기간 중 유권자에게 보낸 이메일 분석해 유사성 비교 보도
+<ul>
+<li>Larson, J., &amp; Shaw, A. (2012, July 17). Message machine: Reverse engineering the 2012 campaign. <em>ProPublica</em>. <a href="https://projects.propublica.org/emails/">projects.propublica.org/emails/</a></li>
+</ul></li>
+</ul></li>
+<li>분류
+<ul>
+<li>미국 LA타임즈는 2015년 범죄기록 40만건을 지도학습(SVM과 MaxEnt)으로 중범죄와 경범죄 분류 오류 발견 보도
+<ul>
+<li>Poston, B., &amp; Rubin, J. (2014, August 10). Times Investigation: LAPD misclassified nearly 1,200 violent crimes as minor offenses. <em>Los Angeles Times</em>. <a href="https://www.latimes.com/local/la-me-crimestats-lapd-20140810-story.html">www.latimes.com/local/la-me-crimestats-lapd-20140810-story.html</a></li>
+</ul></li>
+<li>영국 이코노미스트는 2016년 트럼프와 클린턴의 전당대회 연설에 드러난 감정(긍정, 부정) 분류.
+<ul>
+<li>How Clinton’s and Trump’s convention speeches compared to those of their predecessors. (2016, July 29). <em>The Economist</em>. <a href="https://www.economist.com/graphic-detail/2016/07/29/how-clintons-and-trumps-convention-speeches-compared-to-those-of-their-predecessors">www.economist.com/graphic-detail/2016/07/29/how-clintons-and-trumps-convention-speeches-compared-to-those-of-their-predecessors</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="텍스트-마이너가-되는-방법은" class="section level2 hasAnchor" number="1.7">
+<h2><span class="header-section-number">1.7</span> 텍스트 마이너가 되는 방법은?<a href="intro.html#텍스트-마이너가-되는-방법은" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="r-또는-파이썬" class="section level3 hasAnchor" number="1.7.1">
+<h3><span class="header-section-number">1.7.1</span> R 또는 파이썬<a href="intro.html#r-또는-파이썬" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R텍스트마이닝 <a href="https://r2bit.com/book_tm/">https://r2bit.com/book_tm/</a></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="author.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="case.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-dj.pdf", "bookdown-dj.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

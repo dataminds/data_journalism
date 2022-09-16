@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Page not found | R기반 데이터저널리즘: 텍스트마이닝의 활용</title>
+  <meta name="description" content="This is an introductory material for data journalism with text mining. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Page not found | R기반 데이터저널리즘: 텍스트마이닝의 활용" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is an introductory material for data journalism with text mining. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="dataminds/data_journalism" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Page not found | R기반 데이터저널리즘: 텍스트마이닝의 활용" />
+  
+  <meta name="twitter:description" content="This is an introductory material for data journalism with text mining. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="안도현, PhD" />
+
+
+<meta name="date" content="2022-09-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R기반 데이터저널리즘: 텍스트마이닝의 활용</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>개요</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#r기반-데이터저널리즘-텍스트마이닝의-활용"><i class="fa fa-check"></i><b>0.1</b> R기반 데이터저널리즘: 텍스트마이닝의 활용</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#주요-내용"><i class="fa fa-check"></i><b>0.2</b> 주요 내용</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#왜-프로그래밍인가"><i class="fa fa-check"></i><b>0.3</b> 왜 프로그래밍인가?</a>
+<ul>
+<li class="chapter" data-level="0.3.1" data-path="index.html"><a href="index.html#세기는-제2기계의-시대."><i class="fa fa-check"></i><b>0.3.1</b> 21세기는 제2기계의 시대.</a></li>
+<li class="chapter" data-level="0.3.2" data-path="index.html"><a href="index.html#새로운-수요"><i class="fa fa-check"></i><b>0.3.2</b> 새로운 수요</a></li>
+<li class="chapter" data-level="0.3.3" data-path="index.html"><a href="index.html#제2기계-사용-위계"><i class="fa fa-check"></i><b>0.3.3</b> 제2기계 사용 위계</a></li>
+</ul></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#공개-전자책"><i class="fa fa-check"></i><b>0.4</b> 공개 전자책</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>Author</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> 개요</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#데이터저널리즘"><i class="fa fa-check"></i><b>1.1</b> 데이터저널리즘?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#사회과학의-차이는"><i class="fa fa-check"></i><b>1.2</b> 사회과학의 차이는?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#kbs-이대남-보도-사건"><i class="fa fa-check"></i><b>1.2.1</b> KBS 이대남 보도 사건</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#데이터저널리즘의-위기"><i class="fa fa-check"></i><b>1.3</b> 데이터저널리즘의 위기</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#이유는"><i class="fa fa-check"></i><b>1.3.1</b> 이유는?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#근본적인-질문-왜-코딩이-필요한가"><i class="fa fa-check"></i><b>1.4</b> 근본적인 질문: 왜 코딩이 필요한가?</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#세기는-제2기계의-시대.-1"><i class="fa fa-check"></i><b>1.4.1</b> 21세기는 제2기계의 시대.</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#인식-전환-필요"><i class="fa fa-check"></i><b>1.4.2</b> 인식 전환 필요</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#코딩으로-일이-줄어야지-더-늘어서는-안된다."><i class="fa fa-check"></i><b>1.5</b> 코딩으로 일이 줄어야지, 더 늘어서는 안된다.</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#텍스트마이닝"><i class="fa fa-check"></i><b>1.6</b> 텍스트마이닝</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#텍스트-마이너가-되는-방법은"><i class="fa fa-check"></i><b>1.7</b> 텍스트 마이너가 되는 방법은?</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#r-또는-파이썬"><i class="fa fa-check"></i><b>1.7.1</b> R 또는 파이썬</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="case.html"><a href="case.html"><i class="fa fa-check"></i><b>2</b> 사례</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="case.html"><a href="case.html#패키지"><i class="fa fa-check"></i><b>2.1</b> 패키지</a></li>
+<li class="chapter" data-level="2.2" data-path="case.html"><a href="case.html#정당-강령-비교"><i class="fa fa-check"></i><b>2.2</b> 정당 강령 비교</a></li>
+<li class="chapter" data-level="2.3" data-path="case.html"><a href="case.html#자료"><i class="fa fa-check"></i><b>2.3</b> 자료</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="case.html"><a href="case.html#본문-스크랩"><i class="fa fa-check"></i><b>2.3.1</b> 본문 스크랩</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="case.html"><a href="case.html#분석"><i class="fa fa-check"></i><b>2.4</b> 분석</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="case.html"><a href="case.html#총-단어"><i class="fa fa-check"></i><b>2.4.1</b> 총 단어</a></li>
+<li class="chapter" data-level="2.4.2" data-path="case.html"><a href="case.html#상위-빈도-명사"><i class="fa fa-check"></i><b>2.4.2</b> 상위 빈도 명사</a></li>
+<li class="chapter" data-level="2.4.3" data-path="case.html"><a href="case.html#상대빈도"><i class="fa fa-check"></i><b>2.4.3</b> 상대빈도</a></li>
+<li class="chapter" data-level="2.4.4" data-path="case.html"><a href="case.html#감정어-빈도"><i class="fa fa-check"></i><b>2.4.4</b> 감정어 빈도</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R기반 데이터저널리즘: 텍스트마이닝의 활용</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/%s",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-dj.pdf", "bookdown-dj.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

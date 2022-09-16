@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>R기반 데이터저널리즘: 텍스트마이닝의 활용</title>
+  <meta name="description" content="This is an introductory material for data journalism with text mining. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="R기반 데이터저널리즘: 텍스트마이닝의 활용" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is an introductory material for data journalism with text mining. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="dataminds/data_journalism" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R기반 데이터저널리즘: 텍스트마이닝의 활용" />
+  
+  <meta name="twitter:description" content="This is an introductory material for data journalism with text mining. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="안도현, PhD" />
+
+
+<meta name="date" content="2022-09-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="author.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R기반 데이터저널리즘: 텍스트마이닝의 활용</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>개요</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#r기반-데이터저널리즘-텍스트마이닝의-활용"><i class="fa fa-check"></i><b>0.1</b> R기반 데이터저널리즘: 텍스트마이닝의 활용</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#주요-내용"><i class="fa fa-check"></i><b>0.2</b> 주요 내용</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#왜-프로그래밍인가"><i class="fa fa-check"></i><b>0.3</b> 왜 프로그래밍인가?</a>
+<ul>
+<li class="chapter" data-level="0.3.1" data-path="index.html"><a href="index.html#세기는-제2기계의-시대."><i class="fa fa-check"></i><b>0.3.1</b> 21세기는 제2기계의 시대.</a></li>
+<li class="chapter" data-level="0.3.2" data-path="index.html"><a href="index.html#새로운-수요"><i class="fa fa-check"></i><b>0.3.2</b> 새로운 수요</a></li>
+<li class="chapter" data-level="0.3.3" data-path="index.html"><a href="index.html#제2기계-사용-위계"><i class="fa fa-check"></i><b>0.3.3</b> 제2기계 사용 위계</a></li>
+</ul></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#공개-전자책"><i class="fa fa-check"></i><b>0.4</b> 공개 전자책</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>Author</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> 개요</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#데이터저널리즘"><i class="fa fa-check"></i><b>1.1</b> 데이터저널리즘?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#사회과학의-차이는"><i class="fa fa-check"></i><b>1.2</b> 사회과학의 차이는?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#kbs-이대남-보도-사건"><i class="fa fa-check"></i><b>1.2.1</b> KBS 이대남 보도 사건</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#데이터저널리즘의-위기"><i class="fa fa-check"></i><b>1.3</b> 데이터저널리즘의 위기</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#이유는"><i class="fa fa-check"></i><b>1.3.1</b> 이유는?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#근본적인-질문-왜-코딩이-필요한가"><i class="fa fa-check"></i><b>1.4</b> 근본적인 질문: 왜 코딩이 필요한가?</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#세기는-제2기계의-시대.-1"><i class="fa fa-check"></i><b>1.4.1</b> 21세기는 제2기계의 시대.</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#인식-전환-필요"><i class="fa fa-check"></i><b>1.4.2</b> 인식 전환 필요</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#코딩으로-일이-줄어야지-더-늘어서는-안된다."><i class="fa fa-check"></i><b>1.5</b> 코딩으로 일이 줄어야지, 더 늘어서는 안된다.</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#텍스트마이닝"><i class="fa fa-check"></i><b>1.6</b> 텍스트마이닝</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#텍스트-마이너가-되는-방법은"><i class="fa fa-check"></i><b>1.7</b> 텍스트 마이너가 되는 방법은?</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#r-또는-파이썬"><i class="fa fa-check"></i><b>1.7.1</b> R 또는 파이썬</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="case.html"><a href="case.html"><i class="fa fa-check"></i><b>2</b> 사례</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="case.html"><a href="case.html#패키지"><i class="fa fa-check"></i><b>2.1</b> 패키지</a></li>
+<li class="chapter" data-level="2.2" data-path="case.html"><a href="case.html#정당-강령-비교"><i class="fa fa-check"></i><b>2.2</b> 정당 강령 비교</a></li>
+<li class="chapter" data-level="2.3" data-path="case.html"><a href="case.html#자료"><i class="fa fa-check"></i><b>2.3</b> 자료</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="case.html"><a href="case.html#본문-스크랩"><i class="fa fa-check"></i><b>2.3.1</b> 본문 스크랩</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="case.html"><a href="case.html#분석"><i class="fa fa-check"></i><b>2.4</b> 분석</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="case.html"><a href="case.html#총-단어"><i class="fa fa-check"></i><b>2.4.1</b> 총 단어</a></li>
+<li class="chapter" data-level="2.4.2" data-path="case.html"><a href="case.html#상위-빈도-명사"><i class="fa fa-check"></i><b>2.4.2</b> 상위 빈도 명사</a></li>
+<li class="chapter" data-level="2.4.3" data-path="case.html"><a href="case.html#상대빈도"><i class="fa fa-check"></i><b>2.4.3</b> 상대빈도</a></li>
+<li class="chapter" data-level="2.4.4" data-path="case.html"><a href="case.html#감정어-빈도"><i class="fa fa-check"></i><b>2.4.4</b> 감정어 빈도</a></li>
+<li class="chapter" data-level="2.4.5" data-path="case.html"><a href="case.html#분석-1"><i class="fa fa-check"></i><b>2.4.5</b> 분석</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R기반 데이터저널리즘: 텍스트마이닝의 활용</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">R기반 데이터저널리즘: 텍스트마이닝의 활용</h1>
+<p class="author"><em>안도현, PhD</em></p>
+<p class="date"><em>2022-09-16</em></p>
+</div>
+<div id="개요" class="section level1 unnumbered hasAnchor">
+<h1>개요<a href="index.html#개요" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="r기반-데이터저널리즘-텍스트마이닝의-활용" class="section level2 hasAnchor" number="0.1">
+<h2><span class="header-section-number">0.1</span> R기반 데이터저널리즘: 텍스트마이닝의 활용<a href="index.html#r기반-데이터저널리즘-텍스트마이닝의-활용" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>2022년 9월 24일 한국 R사용자회 강의</p>
+</div>
+<div id="주요-내용" class="section level2 hasAnchor" number="0.2">
+<h2><span class="header-section-number">0.2</span> 주요 내용<a href="index.html#주요-내용" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>데이터저널리즘에 왜 R을 이용해야 하는가?</p></li>
+<li><p>R프로그래밍은 어느 정도 수준까지 필요할까?</p></li>
+<li><p>텍스트마이닝을 데이터저널리즘에 어떻게 활용할 수 있을까?</p></li>
+</ol>
+</div>
+<div id="왜-프로그래밍인가" class="section level2 hasAnchor" number="0.3">
+<h2><span class="header-section-number">0.3</span> 왜 프로그래밍인가?<a href="index.html#왜-프로그래밍인가" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="세기는-제2기계의-시대." class="section level3 hasAnchor" number="0.3.1">
+<h3><span class="header-section-number">0.3.1</span> 21세기는 제2기계의 시대.<a href="index.html#세기는-제2기계의-시대." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>제1기계<br />
+
+<ul>
+<li>전기 등의 에너지를 동력으로 전환하거나, 전환된 동력을 사용해 의도한 행위 수행(기관:engine)<br />
+</li>
+<li>육체노동 대체<br />
+</li>
+<li>사람이 기계를 직접 조작</li>
+</ul></li>
+<li>제2기계: 지식노동을 할수 있는 기계.<br />
+
+<ul>
+<li>동력을 사용해 데이터 1차 및 2차 부호화 작업 수행(컴퓨터)<br />
+</li>
+<li>지식노동 대체<br />
+</li>
+<li>’언어’를 통해 간접조작.</li>
+</ul></li>
+</ul>
+<div id="사무직의-종말" class="section level4 unnumbered hasAnchor">
+<h4>사무직의 종말<a href="index.html#사무직의-종말" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>전통적으로 사람 고유의 업무영역으로 여겼던 사무를 기계가 대체<br />
+</li>
+<li>기계가 대체하는 업무에는 전문직 지식노동(법, 회계, 보도 등) 포함.</li>
+</ul>
+</div>
+</div>
+<div id="새로운-수요" class="section level3 hasAnchor" number="0.3.2">
+<h3><span class="header-section-number">0.3.2</span> 새로운 수요<a href="index.html#새로운-수요" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>제1기계 혁명<br />
+
+<ul>
+<li>육체노동을 대체하는 새로운 수요 발생<br />
+</li>
+<li>제1기계를 다루는 사람(기능인, 기술자)<br />
+</li>
+<li>제1기계를 다루는 사람 관리(경영자, 관리자)<br />
+</li>
+</ul></li>
+<li>제2기계 혁명
+<ul>
+<li>지식노동 대체을 대체하는 새로운 수요는?</li>
+<li>제2기계를 다루는 사람</li>
+</ul></li>
+<li>로봇이 더 잘할 수 있는 것들<br />
+
+<ul>
+<li>단순, 규칙적인 사실<br />
+</li>
+<li>검색, 안내, 기장, 사건 및 시황 보도 등<br />
+</li>
+</ul></li>
+<li>인간은?<br />
+
+<ul>
+<li>복잡한, 창의적인 활동<br />
+</li>
+<li>기획, 탐사, 심층 분석 등</li>
+<li>이런 일을 기계와 함께 수행!!!</li>
+</ul></li>
+</ul>
+<p>국제화 시대에 영어 등 외국어 능력이 필수적이듯, 제2기계의 시대에서는 제2기계와의 소통수단인 코딩 능력이 필수.</p>
+<div class="infobox">
+<p>코딩과 프로그래밍은 같은 말이나, 굳이 구분한다면 다음과 같은 차이가 있다.</p>
+<ul>
+<li><p><strong>코딩</strong>
+인간의 언어를 기계가 이해할 수 있는 코드(code: 부호)로 작성하는 행위.</p></li>
+<li><p><strong>프로그래밍</strong>
+특정 작업을 수행하는 일련의 명령어 집합(프로그램)을 구성하는 행위.</p></li>
+</ul>
+<p>비유하자면, 소설을 쓰는 것이 프로그래밍. 글을 쓰는 것이 코딩에 해당한다고 할 수 있다.</p>
+</div>
+</div>
+<div id="제2기계-사용-위계" class="section level3 hasAnchor" number="0.3.3">
+<h3><span class="header-section-number">0.3.3</span> 제2기계 사용 위계<a href="index.html#제2기계-사용-위계" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>1단계<br />
+
+<ul>
+<li>응용프로그램 이용: Point &amp; Click</li>
+</ul></li>
+<li>2단계<br />
+
+<ul>
+<li>저급 프로그래밍: 사전 제작된 함수나 패키지(라이브러리) 사용</li>
+</ul></li>
+<li>3단계<br />
+
+<ul>
+<li>고급 프로그래밍: 필요한 함수나 알고리듬 개발</li>
+</ul></li>
+</ul>
+<p>프로그래밍 없이도 제2기계를 부리는 것이 불가능하지는 않다. 그러나 제한적. 비유하자면, 대중교통과 자가용 이용의 차이. 운전을 하지 못해도 택시를 통해 자동차를 이용할 수 있지만(1단계), 자가용처럼 사용(2단계)하는 것은 불가능. 자동차 엔진을 직접 튜닝할수 있는 능력(3단계)까지는 아니더라도, 최소한 운전(코딩/프로그래밍) 정도는 할수 있는 능력 필요.</p>
+<p>문맹은 글을 읽고 쓰지 못하는 사람.</p>
+<p>프로그래밍은 기계가 이해할 수 있는 글을 읽고 쓰는 능력.</p>
+</div>
+</div>
+<div id="공개-전자책" class="section level2 hasAnchor" number="0.4">
+<h2><span class="header-section-number">0.4</span> 공개 전자책<a href="index.html#공개-전자책" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>R 기초</p></li>
+<li><p><a href="https://r2bit.com/book_tm/">R 텍스트마이닝</a></p></li>
+</ul>
+<hr />
+<p>저작권: 동일조건 공개
+- 수정 가능
+- 출처 표시
+- 비상업적 이용</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="author.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-dj.pdf", "bookdown-dj.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
