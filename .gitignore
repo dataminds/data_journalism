@@ -52,7 +52,3 @@ vignettes/*.pdf
 /othercode
 /working
 
-# bookdown
-_book
-_bookdown_files
-rsconnect
