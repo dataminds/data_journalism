@@ -249,6 +249,8 @@ bind_cols(
  - unweighted: 비가중 로그승산 사용여부. 기본값은 FALSE. TRUE로 지정하면 비가중 로그승산비(log_odds) 열을 추가
  
 
+가중로그승산비에 대한 보다 자세한 설명은 [R텍스트마이닝 8.2.4 가중로그승산비 참조](https://r2bit.com/book_tm/tf-idf.html#%EA%B0%80%EC%A4%91%EB%A1%9C%EA%B7%B8%EC%8A%B9%EC%82%B0%EB%B9%84)
+
 ```{r}
 # 행방향 결합. 1 = 국민의당 2 = 더불어민주당
 bind_rows(ppp_df, tmj_df, .id = "party")  %>% 
@@ -582,5 +584,29 @@ tmj_st %>%
   pull() -> tmj_txt
 crayon_words(input_text = tmj_txt, "위기")
 ```
+
+### 정규표현식으로 탐색
+
+`위기` 앞에 임의 문자 `.` 1개부터 10개 사이 `{1,10}` 표시
+
+```{r}
+ppp_txt %>% 
+  str_extract(".{1,10}위기") 
+```
+
+```{r}
+tmj_txt %>% 
+  str_extract(".{1,10}위기") 
+```
+
+'기후' 빈도
+
+```{r}
+tmj_txt %>% 
+  str_extract(".{1,10}위기") %>% 
+  str_detect("기후") %>% 
+  tabyl()
+```
+
 
 
