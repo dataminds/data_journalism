@@ -1,0 +1,41 @@
+---
+title: "Untitled"
+format: html
+---
+
+```{r}
+sgr.string <- c(
+  "\033[43;34mday > night\033[0m",
+  "\033[44;33mdawn < dusk\033[0m"
+)
+writeLines(sgr.string)
+```
+
+```{r, comment="", results="asis"}
+old.hooks <- fansi::set_knit_hooks(knitr::knit_hooks)
+```
+```{r}
+writeLines(sgr.string)
+```
+
+```{r results="asis",  comment=""}
+library(tidyverse)
+library(glue)
+library(crayon)
+library(fansi)
+options(crayon.enabled = TRUE)
+crayon_words <- function(input_text, word = " ") {
+  replaced_text <- str_replace_all(input_text, word, "{red {word}}")
+  for(i in 1:length(replaced_text)) {
+    crayon_text <- glue::glue_col(deparse(replaced_text[[i]]))
+    print(crayon_text)
+  }
+}
+"국가적 위기 해결에 앞장서야" %>% 
+  crayon_words(input_text = ., "해결")
+```
+
+```{r}
+"국가적 위기 해결에 앞장서야" %>% 
+  str_replace_all(., "해결", "{red}")
+```

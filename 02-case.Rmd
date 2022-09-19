@@ -1,15 +1,26 @@
-# 사례 {#case}
+# 정당강렬 비교 사례 {#case}
+
+국민의힘과 더불어민주당 홈페이지에 게재된 정당 강령을 스크랩해  두 문서에 사용된 단어의 빈도를 계산하는 작업. 총빈도, 상대빈도, 감정어 빈도를 계산해 의미를 파악한다. R을 10시간 정도 학습하면 가능한 작업이다. 만들어 놓은 코드를 재활용하면 1시간 정도에 작업을 마무리할 수 있다.  즉, 1시간 정도면 2,3꼭지 정도의 기사를 쓸수 있는 거리가 생긴다. 
+
+데이터저널리즘의 본질은 자료의 수집과 분석. 시각화는 부차적인 요소. 빅데이터의 수집과 분석 역시 부차적. 모든 언론인이 늘 특종상을 받을 기사를 써야하는 것은 아니다. 데이터저널리즘도 마찬가지. 
 
 ## 패키지
 
-```{r warning=TRUE}
+```{r warning=FALSE}
 c(
-  "tidyverse", "tidytable", 
-  "rvest", "janitor", 
-  "tidytext", "RcppMeCab", "tidylo", 
-  "gt"
+  "tidyverse", # 어지러웠던 R세상을 깔끔하게 정돈. 
+# "dplyr",     # tidyverse 부착. 공구상자
+# "stringr",   # tidyverse 부착. 문자형자료 처리
+  "tidytable", # datatable패키지를 tidy인터페이스로. 빠르고 함수명 혼란 제거
+  "rvest",     # 웹 스크래핑 도구
+  "janitor",   # 정제 및 기술통계 도구
+  "tidytext",  # 텍스트를 깔끔하게 정돈하는 도구
+  "RcppMeCab", # 형태소분석기
+  "tidylo",    # 상대빈도 분석
+  "gt"         # tidy원리를 적용한 표 생성. 
   ) -> pkg 
 ```
+
 
 ```{r eval=FALSE, include=FALSE}
 # 아래 청크: 실행x, 코드o, 결과x
@@ -25,8 +36,6 @@ sapply(pkg, function(x){
 sapply(pkg, require, ch = T)
 ```
 
-
-## 정당 강령 비교
 
 ## 자료
 
@@ -58,13 +67,13 @@ url %>% read_html() %>%
 saveRDS(tmj_v, "tmj_v.rds")
 ```
 
-`tidytext`패키지와 `RcppMeCab`패키지로 품사로 토큰화해 데이터프레임으로 저장. 셀 하나당 토큰 하나. 
+`tidytext`패키지와 `RcppMeCab`패키지를 이용해 품사를 기준으로 토큰화해 데이터프레임으로 저장. 셀 하나당 토큰 하나. 
 
 ```{r warning=FALSE}
 readRDS("ppp_v.rds") %>% 
   tibble(text = .) %>% 
   # 품사로 토큰화
-  unnest_tokens(word, text, token  = pos) %>% 
+  unnest_tokens(output = word, input = text, token  = pos) %>% 
   separate(col = word, 
            into = c("word", "pos"),
            sep = "/") -> ppp_df
@@ -104,7 +113,7 @@ ppp_df -> df
 n_ppp -> n_total
 # 명사 빈도
 df %>% 
-  # 단어 길이 1개는 분석에 제외
+  # 단어 길이 1개는 분석에서 제외
   filter(str_length(word) > 1) %>% 
   # 명사만 선택
   filter(pos == 'nng') %>% 
@@ -148,6 +157,8 @@ bind_cols(top_ppp, top_tmj) %>%
 
 #### 함께 사용한 단어
 
+`dplyr`패키지의 `inner_join()`함수로 두 정당 자료를 결합해 함께 사용한 단어를 추출한다. 
+
 ```{r}
 # 데이터프레임 공통어 결합
 inner_join(
@@ -187,6 +198,8 @@ inner_join(
 
 #### 상위공통어 중 상대적으로 더 많이 쓴 단어 
 
+양당이 함께 많이 사용한 단어 중 각각 국민의당과 더불어민주당 기준으로 정렬해 비교한다. 
+
 ```{r}
 # 국민의당 기준 공통어 데이터프레임 결합
 inner_join(
@@ -196,7 +209,9 @@ inner_join(
   ) %>% filter(str_length(word) > 1) %>% 
   mutate(ppp_by10000 = round(n.x/n_ppp, 5) * 10000,
          tmj_by10000 = round(n.y/n_tmj, 5) * 10000,
+  # 사용 어휘 차이 빈도 계산
          diff = ppp_by10000 - tmj_by10000) %>%
+  # 차이가 큰 순서를 국민의당기준으로 정렬
   arrange(desc(diff)) %>% 
   head(15) -> com_ppp
 # 더불어민주당 기준 공통어 데이터프레임 결합
@@ -207,7 +222,9 @@ inner_join(
   ) %>% filter(str_length(word) > 1) %>% 
   mutate(ppp_by10000 = round(n.x/n_ppp, 5) * 10000,
          tmj_by10000 = round(n.y/n_tmj, 5) * 10000,
+  # 사용 어휘 차이 빈도 계산       
          diff = ppp_by10000 - tmj_by10000) %>% 
+  # 차이가 큰 순서를 더불어민주당 순서로 정렬
   arrange(diff) %>% 
   head(15) -> com_tmj
 
@@ -238,6 +255,8 @@ bind_cols(
 
 #### 문서 전반의 상대빈도
 
+문서 전체의 사용 단어의 빈도를 계산해 두 정당에서 상대적으로 더 많이 사용한 단어가 무엇인지 계산. 
+
 `tidylo`패키지의 `bind_log_odds()`함수로 계산하는 가중로그승산비를 이용.
 
 - bind_log_odds(tbl, set, feature, n, uninformative = FALSE, unweighted = FALSE)
@@ -248,7 +267,6 @@ bind_cols(
  - uninformative: uninformative 디리슐레 분포 사용 여부. 기본값은 FALSE
  - unweighted: 비가중 로그승산 사용여부. 기본값은 FALSE. TRUE로 지정하면 비가중 로그승산비(log_odds) 열을 추가
  
-
 가중로그승산비에 대한 보다 자세한 설명은 [R텍스트마이닝 8.2.4 가중로그승산비 참조](https://r2bit.com/book_tm/tf-idf.html#%EA%B0%80%EC%A4%91%EB%A1%9C%EA%B7%B8%EC%8A%B9%EC%82%B0%EB%B9%84)
 
 ```{r}
@@ -300,7 +318,11 @@ bind_cols(
 
 ### 감정어 빈도
 
+감정어가 포함돼 데이터프레임 사전과 분석대상 문서를 `inner_join()`한다. 
+
 #### 감정사전
+
+먼저 간정사전 만들기. 
 
 - [KNU한국어감성사전](https://github.com/park1200656/KnuSentiLex)
 군산대 소프트웨어융합공학과 Data Intelligence Lab에서 개발한 한국어감정사전이다. 표준국어대사전을 구성하는 각 단어의 뜻풀이를 분석하여 긍부정어를 추출했다.
@@ -338,14 +360,16 @@ list.files(pattern = "^knu")
 
 #### 단어 빈도
 
+앞서 만든 감정사전 데이터프레임과 분석대상 문서의 데이터프레임을 `inner_join()`
+
 ```{r}
 # 감정사전과 결합
 readRDS("knu_dic.rds") -> knu_dic_df
 ppp_df %>% inner_join(knu_dic_df) -> emo_ppp
 tmj_df %>% inner_join(knu_dic_df) -> emo_tmj
-# 열 결합
+# 두 정당의 값을 보기 편하게 열방향으로 결합
 bind_cols(
-  # 국민의 당
+  # 국민의당
   emo_ppp %>% 
     count(word, sScore, sort = T) %>% 
     filter(str_length(word) > 1) %>% 
@@ -377,6 +401,8 @@ bind_cols(
 
 
 #### 긍정어/부정어 비율
+
+두 정당의 강령에서 긍정어와 부정어의 비율을 계산해 비교. 
 
 ```{r}
 emo_ppp %>% 
@@ -481,7 +507,7 @@ inner_join(
 
 
 
-#### 상대빈도
+#### 감정어 상대빈도
 
 ```{r}
 # 행방향 결합. 1 = 국민의당 2 = 더불어민주당
@@ -531,18 +557,41 @@ bind_cols(
 
 ## 단어 맥락(KWIC)
 
-KWIC(KeyWord In Context) 특정 단어가 사용된 맥락을 파악하기 위해 특정 단어가 속한 문장 혹은 전후 단어를 함께 추출
+- KWIC: KeyWord In Context
+
+특정 단어가 사용된 맥락을 파악하기 위해 특정 단어가 속한 문장 혹은 전후 단어를 함께 추출
 
 ### 단어가 포함된 문장 탐색
 
-`crayon`패키지로 특정 단어을 색으로 표시해 어느 문장에 사용됐는지 탐색
+`crayon`패키지로 특정 단어를 장식해 문장의 어느 위치에 사용됐는지 탐색
 
-먼저 문장 단위로 토큰화
+```{r, comment="", results="asis"}
+old.hooks <- fansi::set_knit_hooks(knitr::knit_hooks)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(glue)
+library(crayon)
+library(fansi)
+options(crayon.enabled = TRUE)
+crayon_words <- function(input_text, word = " ") {
+  replaced_text <- str_replace_all(input_text, word, "{red {word}}")
+  for(i in 1:length(replaced_text)) {
+    crayon_text <- glue::glue_col(deparse(replaced_text[[i]]))
+    print(crayon_text)
+  }
+}
+"국가적 위기 해결에 앞장서야" %>% 
+  crayon_words(input_text = ., "해결")
+```
+
+
+먼저 문장 단위로 토큰화.
 
 ```{r}
 readRDS("ppp_v.rds") %>% 
   tibble(text = .) %>% 
-  unnest_tokens(sentence, text, 
+  unnest_tokens(output = sentence, input = text, 
                 token  = "regex", pattern = "\\.") -> ppp_st
 readRDS("tmj_v.rds") %>% 
   tibble(text = .) %>% 
@@ -550,6 +599,7 @@ readRDS("tmj_v.rds") %>%
                 token  = "regex", pattern = "\\.") -> tmj_st
 ```
 
+여기서는 양당이 함께 감정어로 많이 사용했지만, 더불어민주당이 특히 많이 사용한 '위기'가 어느 맥락에서 사용됐는지 탐색한다. 
 
 국민의당이 기술한 위기
 
@@ -557,23 +607,9 @@ readRDS("tmj_v.rds") %>%
 ppp_st %>% 
   filter(str_detect(sentence, "위기")) %>% 
   pull() -> ppp_txt
-
-library(fansi)
-library(glue)
-library(crayon)
-options(crayon.enabled = TRUE)
-
-crayon_words <- function(input_text, word = "위기") {
-
-  replaced_text <- str_replace_all(input_text, word, "{red {word}}")
-
-  for(i in 1:length(replaced_text)) {
-    crayon_text <- glue::glue_col(deparse(replaced_text[[i]]))
-    print(crayon_text)
-  }
-}
 crayon_words(input_text = ppp_txt, "위기")
 ```
+
 
 
 더불어민주당이 기술한 위기
@@ -587,7 +623,9 @@ crayon_words(input_text = tmj_txt, "위기")
 
 ### 정규표현식으로 탐색
 
-`위기` 앞에 임의 문자 `.` 1개부터 10개 사이 `{1,10}` 표시
+정규표현식을 이용하면 필요한 부분만 추출해서 볼수 있다. 
+
+`위기` 앞에 임의 문자 `.` 1개부터 10개 사이 `{1,10}`를 추출해 표시
 
 ```{r}
 ppp_txt %>% 
@@ -599,13 +637,17 @@ tmj_txt %>%
   str_extract(".{1,10}위기") 
 ```
 
+더불어민주당은 기후위기에 대한 언급이 두드러지게 많다. 
+
 '기후' 빈도
 
 ```{r}
 tmj_txt %>% 
   str_extract(".{1,10}위기") %>% 
   str_detect("기후") %>% 
-  tabyl()
+  tabyl() %>% 
+  gt() %>% 
+  tab_header("더불어민주당 위기 중 기후 비중")
 ```
 
 
