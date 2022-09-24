@@ -609,6 +609,9 @@ readRDS("tmj_v.rds") %>%
 ```{r}
 ppp_st %>% 
   filter(str_detect(sentence, "위기")) %>% 
+  # 공백문자 및 공백 제거
+  mutate(sentence = str_remove_all(sentence, pattern = "\r|\n"),
+         setntence = str_squish(sentence)) %>% 
   pull() -> ppp_txt
 crayon_words(input_text = ppp_txt, "위기")
 ```
@@ -620,6 +623,9 @@ crayon_words(input_text = ppp_txt, "위기")
 ```{r}
 tmj_st %>% 
   filter(str_detect(sentence, "위기")) %>% 
+  # 공백문자 및 공백 제거
+  mutate(sentence = str_remove_all(sentence, pattern = "\r|\n"),
+         setntence = str_squish(sentence)) %>% 
   pull() -> tmj_txt
 crayon_words(input_text = tmj_txt, "위기")
 ```
