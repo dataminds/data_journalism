@@ -1,7 +1,7 @@
 ---
 title: "R기반 데이터저널리즘: 텍스트마이닝의 활용"
 author: "안도현, PhD"
-date: "2022-09-17"
+date: "2022-09-24"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
