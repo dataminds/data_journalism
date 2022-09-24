@@ -638,12 +638,14 @@ crayon_words(input_text = tmj_txt, "위기")
 
 ```{r}
 ppp_txt %>% 
-  str_extract(".{1,11}위기") 
+  str_extract(".{1,11}위기") %>% 
+  crayon_words(., "위기") 
 ```
 
 ```{r}
 tmj_txt %>% 
-  str_extract(".{1,11}위기") 
+  str_extract(".{1,11}위기") %>% 
+  crayon_words(., "위기") 
 ```
 
 더불어민주당은 기후위기에 대한 언급이 두드러지게 많다. 
